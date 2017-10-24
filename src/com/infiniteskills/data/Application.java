@@ -9,15 +9,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.infiniteskills.data.entities.Account;
-import com.infiniteskills.data.entities.AccountType;
-import com.infiniteskills.data.entities.Address;
-import com.infiniteskills.data.entities.Bank;
-import com.infiniteskills.data.entities.Bond;
-import com.infiniteskills.data.entities.Budget;
-import com.infiniteskills.data.entities.Stock;
-import com.infiniteskills.data.entities.Transaction;
-import com.infiniteskills.data.entities.User;
+import com.infiniteskills.data.entities.*;
+
 
 public class Application {
 
