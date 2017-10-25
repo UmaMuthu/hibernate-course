@@ -22,9 +22,9 @@ public class Application {
 		/* Obtain Session and Call Persistence Methods */
 		Session session = sessionFactory.openSession();
 		session.getTransaction().begin();
-		Query query = session.createQuery("select distinct t.account from Transaction t where t.amount>100");
-		//User user = createUser();
-		//session.save(user);
+		//Query query = session.createQuery("select distinct t.account from Transaction t where t.amount>100");
+		User user = createUser();
+		session.save(user);
 		/*UserCredentialView user_view = (UserCredentialView) session.get(UserCredentialView.class, 1L);
 		System.out.println("firstName"+user_view.getFirstName());
 		System.out.println(user_view.getLastName());*/
