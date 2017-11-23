@@ -4,12 +4,22 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
-import org.hibernate.Query;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 
-import com.infiniteskills.data.entities.*;
+import com.infiniteskills.data.entities.Account;
+import com.infiniteskills.data.entities.AccountType;
+import com.infiniteskills.data.entities.Address;
+import com.infiniteskills.data.entities.Bank;
+import com.infiniteskills.data.entities.Bond;
+import com.infiniteskills.data.entities.Budget;
+import com.infiniteskills.data.entities.Stock;
+import com.infiniteskills.data.entities.Transaction;
+import com.infiniteskills.data.entities.User;
 
 
 public class Application {
@@ -22,9 +32,16 @@ public class Application {
 		/* Obtain Session and Call Persistence Methods */
 		Session session = sessionFactory.openSession();
 		session.getTransaction().begin();
+		Criteria c = session.createCriteria(Transaction.class);
+		c.addOrder(Order.desc("title"));
+		List<Transaction> transactions = c.list();
+		for(Transaction t:transactions)
+		{
+			System.out.println(t.getTitle());
+		}
 		//Query query = session.createQuery("select distinct t.account from Transaction t where t.amount>100");
-		User user = createUser();
-		session.save(user);
+		//User user = createUser();
+		//session.save(user);
 		/*UserCredentialView user_view = (UserCredentialView) session.get(UserCredentialView.class, 1L);
 		System.out.println("firstName"+user_view.getFirstName());
 		System.out.println(user_view.getLastName());*/
